@@ -1,0 +1,14 @@
+{
+  "acts": {
+    "awakening": 14.5,
+    "tandav": 52,
+    "fury": 205,
+    "stillness": 258
+  },
+  "climax": 256.8,
+  "endTitle": 272,
+  "lightning": [14.5, 52, 118.2, 205, 231.4],
+  "accents": [52, 78.4, 104.8, 131.2, 205, 218.6, 232.2, 245.8],
+  "bpm": 98,
+  "beatOffset": 52
+}
