@@ -9,11 +9,8 @@ export const smoothstep = (a: number, b: number, v: number) => {
 export const damp = (current: number, target: number, lambda: number, dt: number) =>
   lerp(current, target, 1 - Math.exp(-lambda * dt))
 
-export const easeInOutCubic = (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2)
 export const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3)
-export const easeInCubic = (t: number) => t * t * t
 export const easeInOutSine = (t: number) => -(Math.cos(Math.PI * t) - 1) / 2
-export const easeOutExpo = (t: number) => (t >= 1 ? 1 : 1 - Math.pow(2, -10 * t))
 
 /** Deterministic PRNG so procedural geometry is identical across reloads. */
 export function mulberry32(seed: number) {

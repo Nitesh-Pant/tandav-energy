@@ -9,8 +9,6 @@ export interface VisualEvents {
   shockwave: { strength: number; x?: number; z?: number; vertical?: boolean }
   /** A lightning strike. `target` biases where the bolt lands. */
   lightning: { strength: number; target?: 'sky' | 'trident' | 'mountain' }
-  /** The trident catches a sweep of light. */
-  glint: { strength: number }
   /** Spark burst at a world position. */
   sparks: { strength: number; x: number; y: number; z: number }
   /** A dance accent: the figure stamps its foot. */

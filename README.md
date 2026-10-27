@@ -29,13 +29,13 @@ Requires Node 20.19+ (or 22.12+) and a browser with WebGL (WebGL 2 preferred).
 
 ## Sound
 
-No copyrighted audio is included. The experience works in one of three modes, picked automatically:
+The repo includes the recording the piece is choreographed to (`public/audio/tandav.mp3`, 8:34), with its cue and lyric timing files. The experience works in one of three modes, picked automatically:
 
-1. **Your recording (optional).** Put the audio file at **`public/audio/tandav.mp3`**. `.m4a`, `.ogg` and `.wav` also work, but the name must be `tandav`. Reload the page. The intro shows *"Soundtrack loaded"*, and the track plays after **Enter**. Nothing else is required, because the recording is analysed automatically (see below).
+1. **A recording.** The audio file lives at **`public/audio/tandav.mp3`**. To use a different one, replace it. `.m4a`, `.ogg` and `.wav` also work, but the name must be `tandav`. Reload the page. The intro shows *"Soundtrack loaded"*, and the track plays after **Enter**. Nothing else is required, because the recording is analysed automatically (see below).
 2. **The built-in procedural score (default).** This is an original piece, about 2 min 52 s long, synthesised in real time with Web Audio. It has a tanpura-style drone, damaru strokes, taiko, thunder, temple bells, metallic shimmer and a low vocal-formant "Om". The drum pattern follows the *Panchachamara* metre of the Stotram: a light stroke and then a heavy one, *da-DUM da-DUM*. The score is written as data in `src/choreography/composition.ts`, and the visual timeline is generated from the same data, so every lightning strike lands on its thunder clap.
 3. **Silent fallback.** If Web Audio is unavailable, the choreography still runs on a clock.
 
-Audio never starts before the visitor interacts with the page. Audio files in `public/audio/` are git-ignored. If you deploy the site publicly, use a recording you have the rights to share.
+Audio never starts before the visitor interacts with the page.
 
 ### Automatic choreography for your recording
 
@@ -251,7 +251,7 @@ src/
 | Asset                               | Why                                       | Where it plugs in                          |
 | ----------------------------------- | ----------------------------------------- | ------------------------------------------ |
 | A licensed, skinned Nataraja GLTF   | Sculpted anatomy, ornaments, real cloth    | `src/scene/Shiva/Shiva.tsx` (keep the rig) |
-| A licensed Stotram recording        | The real chant drives the visuals          | `public/audio/tandav.mp3` + lyrics file    |
+| A lossless copy of the recording    | The current file is a lossy rip, clipped and cut off above 16.5 kHz | `public/audio/tandav.mp3`  |
 | HDR star or nebula photography      | Photographic depth in the sky              | `src/scene/Environment/Sky.tsx`            |
 
 Bronze sculpture: [*Shiva Nataraja (Lord of Dance)*](https://zenodo.org/records/10307106), Birmingham Museum of Art (2013 bronze by Sri Pradakaran, Sri Govindan and Sri Pratiban, Sri Rajan Industries, Tamil Nadu). The 3D scan is licensed [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). It was changed for this project: the scanning surface was removed, the tilt was corrected, and it was simplified to about 20% and compressed (`public/models/nataraja.glb`).

@@ -68,10 +68,6 @@ export function getLyrics(): readonly TimedLine[] {
   return lines
 }
 
-export function hasLyrics() {
-  return lines.length > 0
-}
-
 export function onLyricsChange(f: () => void) {
   listeners.add(f)
   return () => listeners.delete(f)

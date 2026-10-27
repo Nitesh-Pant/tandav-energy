@@ -180,13 +180,10 @@ export class Director {
     stage.climax *= Math.exp(-dt * 0.45)
 
     // ── Beat grid (procedural score / cue file with bpm or individual beats) ──
-    if (tl.tempo) stage.beatLength = 60 / tl.tempo.bpm
     if (tl.beats && t >= tl.beats[0] && t < Math.min(tl.climax, tl.beats[tl.beats.length - 1])) {
       const i = beatAt(tl.beats, t)
-      const len = tl.beats[i + 1] - tl.beats[i]
       stage.beatIndex = i
-      stage.beatPhase = (t - tl.beats[i]) / len
-      stage.beatLength = len
+      stage.beatPhase = (t - tl.beats[i]) / (tl.beats[i + 1] - tl.beats[i])
     } else if (tl.tempo && t >= tl.tempo.start && t < tl.tempo.end) {
       const b = (t - tl.tempo.start) / (60 / tl.tempo.bpm)
       stage.beatIndex = Math.floor(b)
@@ -360,7 +357,6 @@ export class Director {
         break
       case 'glint':
         stage.glint = Math.max(stage.glint, cue.strength)
-        visualEvents.emit('glint', { strength: cue.strength })
         break
       case 'accent':
         if (!this.nearVerseStart(cue.t)) this.accent(cue.strength, t)

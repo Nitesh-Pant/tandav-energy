@@ -17,7 +17,3 @@ export const PREVIEW = {
   lit: params.has('lit'),
   statue: params.has('statue'),
 }
-
-export function previewTime(): number | null {
-  return PREVIEW.time
-}

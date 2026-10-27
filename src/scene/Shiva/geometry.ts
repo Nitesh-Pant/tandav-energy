@@ -25,63 +25,6 @@ export function taperedCapsule(length: number, r0: number, r1: number, bulge = 0
   return new LatheGeometry(pts, radial)
 }
 
-/** Lion-waisted torso from pelvis (y=0) to neck (y≈0.56); scale X/Z on the mesh for an elliptical section. */
-export function torsoGeometry(): BufferGeometry {
-  const profile: [number, number][] = [
-    [0.0001, -0.075],
-    [0.08, -0.065],
-    [0.118, -0.02],
-    [0.122, 0.05],
-    [0.104, 0.13],
-    [0.092, 0.2],
-    [0.1, 0.27],
-    [0.125, 0.35],
-    [0.142, 0.42],
-    [0.146, 0.475],
-    [0.125, 0.52],
-    [0.07, 0.552],
-    [0.0001, 0.565],
-  ]
-  return new LatheGeometry(
-    profile.map(([r, y]) => new Vector2(r, y)),
-    20,
-  )
-}
-
-/** Jata-makuta: the tall bun of matted locks. */
-export function crownGeometry(): BufferGeometry {
-  const profile: [number, number][] = [
-    [0.0001, 0],
-    [0.07, 0.005],
-    [0.082, 0.04],
-    [0.078, 0.09],
-    [0.06, 0.14],
-    [0.05, 0.17],
-    [0.058, 0.195],
-    [0.03, 0.23],
-    [0.0001, 0.245],
-  ]
-  return new LatheGeometry(
-    profile.map(([r, y]) => new Vector2(r, y)),
-    14,
-  )
-}
-
-/** Short flared dhoti around the hips. Open-ended, render double-sided. */
-export function dhotiGeometry(): BufferGeometry {
-  const profile: [number, number][] = [
-    [0.165, -0.2],
-    [0.15, -0.14],
-    [0.135, -0.06],
-    [0.125, 0.02],
-    [0.115, 0.08],
-  ]
-  return new LatheGeometry(
-    profile.map(([r, y]) => new Vector2(r, y)),
-    20,
-  )
-}
-
 export function crescentGeometry(radius = 0.06): BufferGeometry {
   const s = new Shape()
   s.absarc(0, 0, radius, Math.PI * 0.15, Math.PI * 1.85, false)

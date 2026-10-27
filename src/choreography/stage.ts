@@ -49,8 +49,6 @@ export const stage = {
   nextAccentIn: Infinity,
   /** Seconds relative to the climax (negative before it). */
   toClimax: -Infinity,
-  /** Seconds per beat when the tempo is known. */
-  beatLength: 0.625,
 
   /** Index of the shloka line being sung (-1 when none). */
   lineIndex: -1,
